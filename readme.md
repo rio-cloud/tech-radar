@@ -4,7 +4,7 @@
 
 
 ## Defaults
-Blips that are adopted at RIO by default and are not mentioned in every radar.
+Blips that are adopted at RIO by default and are not mentioned in every radar. New defaults are marked with (*).
 
 #### Techniques
 * Microservices
@@ -26,8 +26,27 @@ Blips that are adopted at RIO by default and are not mentioned in every radar.
 *<br/>CloudFormation is our default tool to model and provide AWS infrastructure.*
 * React
 * Redux
+* ESLint and TSLint (*)
 
 #### Languages & Frameworks
 * Java
 * Spring Boot
 * JavaScript
+
+## Archived
+
+### Last in assess
+
+#### Languages & Frameworks
+* Elixer
+*<br/>No true assessment happend.*
+* Lagom
+*<br/>No true assessment happend.*
+* RxJava
+*<br/>No true assessment happend.*
+* F#
+*<br/>No true assessment happend.*
+
+#### Platforms
+* AWS IoT Core
+*<br/>After investigating the viability of IoT core for our vehicle connectivity we decided not to migrate now.*
