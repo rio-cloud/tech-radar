@@ -1,6 +1,8 @@
 # RIO Technology Radar
 
-* [RIO Radar Q2 2018 (current)](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q2%25202018.csv)
+* [RIO Radar Q4 2018 (current)](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q4%25202018.csv)
+
+* [RIO Radar Q2 2018](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q2%25202018.csv)
 
 
 ## Defaults
