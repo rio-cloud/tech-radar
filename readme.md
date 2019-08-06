@@ -1,8 +1,10 @@
 # RIO Technology Radar
 
-* [RIO Radar Q4 2018 (current)](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1H1VBSc3Q0KYMExvtq9D_Fwl3BCdr4T9CUb4HHjov8xY%2Fedit%23gid%3D0)
+* [RIO Radar Q3 2019 (current)](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q3%25202019.csv)
 
-* [RIO Radar Q2 2018](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1w4OgqpVAIADD3vXvMvq5n5F5q7w6_rspVgqmJVy5xGc%2Fedit%23gid%3D0)
+* [RIO Radar Q4 2018](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q4%25202018.csv)
+
+* [RIO Radar Q2 2018](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q2%25202018.csv)
 
 
 ## Defaults
@@ -27,6 +29,8 @@ Blips that are adopted at RIO by default and are not mentioned in every radar. N
 * AWS CloudFormation
 *<br/>CloudFormation is our default tool to model and provide AWS infrastructure.*
 * ESLint and TSLint (*)
+* Gradle
+* Maven
 * DataDog
 * AWS SNS/SQS
 *br/><a href="https://aws.amazon.com/sqs/">AWS SQS</a> allows easy integration with Lambdas and therefore allowing multiple consumers of the same asyncronous event, independent from the number of partitions like Kafka, with guaranteed at least once consumption in case of successful processing and controlled mechanism for retries other via the visibility timeout or retry policy with the option of an out of the box dead-letter queue. If in-order processing is required it allows it through the FIFO variant (this does not integrate with lambdas).*
