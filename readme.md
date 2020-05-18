@@ -1,6 +1,6 @@
 # RIO Technology Radar
 
-* RIO Radar Q1 2020 (current) - TODO: Link to be insert after pull request is accepted
+* [RIO Radar Q1 2020 (current)](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q1%25202020.csv)
 
 * [RIO Radar Q3 2019](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q3%25202019.csv)
 
