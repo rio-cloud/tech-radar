@@ -42,7 +42,6 @@ Blips that are adopted at RIO by default and are not mentioned in every radar. N
 *<br/>CloudFormation is our default tool to model and provide AWS infrastructure.*
 * ESLint and TSLint
 * Gradle
-* Maven
 * DataDog
 * AWS SNS/SQS
 *<br/><a href="https://aws.amazon.com/sqs/">AWS SQS</a> allows easy integration with Lambdas and therefore allowing multiple consumers of the same asyncronous event, independent from the number of partitions like Kafka, with guaranteed at least once consumption in case of successful processing and controlled mechanism for retries other via the visibility timeout or retry policy with the option of an out of the box dead-letter queue. If in-order processing is required it allows it through the FIFO variant (this does not integrate with lambdas).*
