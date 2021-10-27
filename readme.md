@@ -36,12 +36,15 @@ Blips that are adopted at RIO by default and are not mentioned in every radar. N
 *<br/>[AWS Glue](https://aws.amazon.com/de/glue/) is a managed ETL service. It can be used to batch process data in reoccurring jobs. Under the hood Glue runs your code in Apache Spark.*
 * Amazon Quicksight (*)
 *<br/>[AWS Quicksight](https://aws.amazon.com/de/quicksight/) is a cloud based BI service. In an AWS environment it is lightweight and it is able to connect to S3, S3 via Athena, Redshift and many other data sources. Quicksight enables users to query data either with SQL or with a graphical tool. Results can be visualized on Dashboards.*
+* AWS DynamoDB (*)
+*<br/>DynamoDB is used for all services where its capabilities are sufficient, we recommend to use it. It is a fully managed, highly scalable, low latency NoSQL database.*
 
 #### Tools
 * AWS CloudFormation
 *<br/>CloudFormation is our default tool to model and provide AWS infrastructure.*
-* ESLint and TSLint
+* ESLint
 * Gradle
+* npm
 * DataDog
 * AWS SNS/SQS
 *<br/><a href="https://aws.amazon.com/sqs/">AWS SQS</a> allows easy integration with Lambdas and therefore allowing multiple consumers of the same asyncronous event, independent from the number of partitions like Kafka, with guaranteed at least once consumption in case of successful processing and controlled mechanism for retries other via the visibility timeout or retry policy with the option of an out of the box dead-letter queue. If in-order processing is required it allows it through the FIFO variant (this does not integrate with lambdas).*
@@ -51,10 +54,11 @@ Blips that are adopted at RIO by default and are not mentioned in every radar. N
 
 #### Languages & Frameworks
 * Kotlin
-* Spring Boot
+* Spring Boot 2
 * TypeScript
 * React
 * Redux
+* Amazon Corretto
 
 #### Techniques
 * Continuous Delivery (*)
@@ -65,6 +69,10 @@ Blips that are adopted at RIO by default and are not mentioned in every radar. N
 *<br/>We want to avoid operating infrastructure ourself as much as possible, because we want to focus on writing code relevant for our business. Servless services from AWS are other service providers help with that.
 <br/>Our decision to use Kafka instead of Kinesis is limiting are capability to embrace some serverless use cases.
 <br/>See AWS Lambda description for more details*
+* SSO federated to AD (*)
+*<br/>We want to avoid the work and securty risk of manual user management in services used by employees and instead federate all logins to our AD.*
+* [Feature Toggles](https://martinfowler.com/articles/feature-toggles.html) (*)
+*<br/> We use [split.io](https://www.split.io/) to manage feature toggles of released applications. For short living toggles or for prototypes one could also cosider to use url based feature toggles instead.*
 
 ## Defaults on Hold
 Blips that should not be adopted at RIO by default and are already removed from the radar. New defaults are marked with (*).
