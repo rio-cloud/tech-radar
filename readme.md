@@ -77,9 +77,16 @@ Blips that are adopted at RIO by default and are not mentioned in every radar. N
 ## Defaults on Hold
 Blips that should not be adopted at RIO by default and are already removed from the radar. New defaults are marked with (*).
 
+#### Tools
+* Custom Build Images for CodeBuild (*)
+*<br/>As custom build images always bear the risk to be outdated, we use the <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html">docker build images</a> provided by AWS wherever possible.*
 #### Languages & Frameworks
-* Node.js for services (*)
-* Spring Boot 1 (*)
+* Node.js for services
+* Spring Boot 1
+
+#### Techniques
+* Shared libraries (*)
+*<br/>"Common", "General" or similar sounding libraries should be avoided if they could not be opensourced since upgrading an (internal) common library is poarticularly complex to almost impossible.*
 
 ## Archived
 
