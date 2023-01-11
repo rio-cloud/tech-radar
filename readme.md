@@ -1,278 +1,139 @@
 # RIO Technology Radar
 * [RIO Radar Q1 2023 (current)](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q1%25202023.csv)
 
-* [RIO Radar Q4 2021](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q4%25202021.csv)
+## Purpose
 
-* [RIO Radar Q1 2020](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q1%25202020.csv)
+The Tech Radar is a tool that should give engineering teams at RIO
+guidance to pick the best technologies for their projects. It provides a
+platform to share knowledge and experience in technologies, reflecting
+the maturity level of each item and the decisions that led to it.
 
-* [RIO Radar Q3 2019](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q3%25202019.csv)
+Using the Paved Road concept, where all mature technologies have a
+well-documented application and reduced operational efforts. It also
+reduces the learning curve by increasing the alignment, cooperation and
+knowledge sharing between teams. Therefore the blips in **adopt and
+fundamental represent the Paved Road** of our platform. Conversely this
+means, that lifting a blip into one of those rings, it must fit our
+platform.
 
-* [RIO Radar Q4 2018](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q4%25202018.csv)
+The tech radar is a constantly evolving document, always reflecting the
+latest decisions and also all experiments being conducted and their
+results, where any developer at RIO is welcome to participate.
 
-* [RIO Radar Q2 2018](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q2%25202018.csv)
+## What it’s not
 
+As we at RIO believe in our teams to make the best decisions for RIO,
+the Tech Radar is not a list of the "only" accepted technologies to be
+used at RIO.
 
-## Defaults
-Blips that are adopted at RIO by default and are not mentioned in every radar. New defaults are marked with (*).
+It should give an overview of the standards we agreed on and as of that
+give a hint for decisions that might need further consultation. But it
+should explicitly not be understood to disallow technologies not
+mentioned in the Tech Radar.
 
-#### Techniques
-* Microservices
+# Principles
 
-#### Platforms
-* Amazon Web Services - AWS
-*<br/>AWS is our default provider for IaaS and PaaS. We prefer AWS platform services over other managed services, over self-hosted OSS and over self-built solutions.*
-* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-*<br/>MongoDB Atlas is a highly available, fully managed database. Our default option for all services requiring a document database.*
-* Amazon ECS
-*<br/>Most of our workloads are running as containers on ECS. We like that the fully managed container scheduler frees us of the operational burden.*   
-* Kafka
-*<br/>Kafka is our central infrastructure, that powers our streaming, messaging, queueing and replication.*
-* Amazon CloudWatch
-*<br/>Although we recognise the limitation of CloudWatch, we also acknowledge that it is highly integrated with all other AWS services and provides a baseline monitoring and reaction capability valuable to us.*
-* Amazon Athena
-*<br/>[AWS Athena](https://aws.amazon.com/de/athena/) is a managed Presto service. In combination with the AWS Glue Data Catalog it enables you to query S3 data with SQL. It supports CSV, JSON, ORC, Avro and Parquet. It is especially useful to do first data explorations.*
-* Amazon Code Tools
-*<br/>New deployments started to use AWS CodeBuild, CodePipeline and CodeDeploy as CI/CD tool chain. This allows, that the pipelines are created via code, that is part of the service repsository.*
-* Amazon Fargate
-*<br/>AWS Fargate is a recent entry into the docker-as-a-service space, currently limited to the US-East-1 region. For teams using AWS Elastic Container Service (ECS), AWS Fargate is a good alternative without having to manage, provision and configure any underlying EC2 instances or clusters. Fargate allows defining (ECS or EKS – ECS for Kubernetes) tasks as a Fargate type, and they will run on the AWS Fargate infrastructure. If you like the focus on business functionality that AWS Lambda gives you, Fargate is the closest you can get when applications can't be deployed as single functions.*
-* Amazon Glue ETL
-*<br/>[AWS Glue](https://aws.amazon.com/de/glue/) is a managed ETL service. It can be used to batch process data in reoccurring jobs. Under the hood Glue runs your code in Apache Spark.*
-* Amazon Quicksight
-*<br/>[AWS Quicksight](https://aws.amazon.com/de/quicksight/) is a cloud based BI service. In an AWS environment it is lightweight and it is able to connect to S3, S3 via Athena, Redshift and many other data sources. Quicksight enables users to query data either with SQL or with a graphical tool. Results can be visualized on Dashboards.*
-* AWS DynamoDB (*)
-*<br/>DynamoDB is used for all services where its capabilities are sufficient, we recommend to use it. It is a fully managed, highly scalable, low latency NoSQL database.*
+|Principle|Description|
+|--|--|
+|AWS first|Favor AWS platform service over managed service, over self-hosted OSS, over self-built solutions. |
+|Avoid self-hosting of non managed tools| If there is a service with a sensible pricing, try to leverage this instead. Self-hosting should be the last possible option. |
+|Everything as code (Automation, IsaC)| We’re focusing on our primary programming languages. These are Kotlin for Backends (especially ECS services) and TypeScript for Frontend and Lambdas at the moment. |
+|High impact| It should improve overall efficiency and reduce friction, effort and impact for teams. |
+|Paved Roads| Provide documentation, standardized and compatible components, components/features as a service. |
+|You build it, You run it!| Everything that should become part of the Paved Road (meaning adopt of fundamental), must be operable by the teams and therefore they should be able to monitor and detect problems using the suggested tooling (e.g. Datadog, Opsgenie etc.). |
+|Less opinionated decisions| Decisions are based on facts and data instead of feelings and preferences |
+|Continuous feedback| Continuous feedback is gathered, when relevant, to improve collaboration and avoid blind spots and also for a less biased decision-making |
+|Incremental features/experimentation | Frequent and small releases are critical to getting valuable feedback in time to have an impact in the solution conception |
 
-#### Tools
-* AWS CloudFormation
-*<br/>CloudFormation is our default tool to model and provide AWS infrastructure.*
-* ESLint
-* Gradle
-* npm (*)
-* DataDog
-* AWS SNS/SQS
-*<br/><a href="https://aws.amazon.com/sqs/">AWS SQS</a> allows easy integration with Lambdas and therefore allowing multiple consumers of the same asyncronous event, independent from the number of partitions like Kafka, with guaranteed at least once consumption in case of successful processing and controlled mechanism for retries other via the visibility timeout or retry policy with the option of an out of the box dead-letter queue. If in-order processing is required it allows it through the FIFO variant (this does not integrate with lambdas).*
-* OpenAPI
-*<br/>The <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a> (formerly known as Swagger) is a community-driven open specification within the OpenAPI Initiative, a Linux Foundation Collaborative Project.
-<br/>The OpenAPI Specification (OAS) defines a standard, programming language-agnostic interface description for REST APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.*
+# Structure
 
-#### Languages & Frameworks
-* Kotlin
-* Spring Boot 2
-* TypeScript
-* React
-* Redux
-* Amazon Corretto (*)
+## Categories
 
-#### Techniques
-* DDD (*)
-* Continuous Delivery
-*<br/>If you are wondering “What comes after agile?,” you should look towards continuous delivery. While your development processes may be fully optimized, it still might take your organization weeks or months to get a single change into production. Continuous delivery focuses on maximizing automation including infrastructure as code, environment management and deployment automation to ensure your system is always ready for production. It is about tightening your feedback loops and not putting off anything until the end. Continuous delivery is not the same as continuous deployment, which means deploying every change to production. Continuous delivery is not a cowboy show. It puts you in charge of your production environment. The business can pick and choose what and when to deploy. If you think you’ve nailed agile development, but aren’t considering how to achieve continuous delivery, you really haven’t even started.*
-* Multi AWS accounts
-*<br/>To decouple our bounded contexts and to limit the blast radius, we are moving from a single production account to multiple accounts.  One AWS account per bounded context.*
-* Serverless
-*<br/>We want to avoid operating infrastructure ourself as much as possible, because we want to focus on writing code relevant for our business. Servless services from AWS are other service providers help with that.
-<br/>Our decision to use Kafka instead of Kinesis is limiting are capability to embrace some serverless use cases.
-<br/>See AWS Lambda description for more details*
-* SSO federated to AD (*)
-*<br/>We want to avoid the work and securty risk of manual user management in services used by employees and instead federate all logins to our AD.*
-* [Feature Toggles](https://martinfowler.com/articles/feature-toggles.html) (*)
-*<br/> We use [split.io](https://www.split.io/) to manage feature toggles of released applications. For short living toggles or for prototypes one could also cosider to use url based feature toggles instead.*
+We document our tech stacks in three categories, although we think, that
+the categories are just for better overview and thus not too important.
 
-## Defaults on Hold
-Blips that should not be adopted at RIO by default and are already removed from the radar. New defaults are marked with.
+-   Techniques
+-   Languages
+-   Libraries and Frameworks
+-   (Managed) Services
 
-#### Languages & Frameworks
-* Node.js for services
-* Spring Boot 1
+Quoted from <https://www.thoughtworks.com/radar/faq-and-more>
 
-#### Techniques
-* Shared libraries (*)
-*<br/>"Common", "General" or similar sounding libraries should be avoided if they could not be opensourced since upgrading an (internal) common library is poarticularly complex to almost impossible.*
+> We don’t make a big deal out of the quadrants — they’re really just a
+> way to break up the Radar into topic areas. We don’t think it’s
+> important which quadrant a blip goes into, unlike the rings - which
+> generate a lot of discussions.
 
-## Archived
+## Rings (Levels)
 
-### Last in adopt
+Each technology is in one of the following Rings (Levels):
 
-#### Tools
-* Detekt (*)
-*<br/>Decommissioned as some teams complained about the overhead compared to the value add. WE don't want to put in on hold but let the specific teams decide whether they use it or not.*
+### Fundamental (former "Defaults")
 
-#### Languages & Frameworks
+**We as RIO are most experienced with these items as this are our core
+techniques, tools and languages.**
 
-* MockK (*)
-*<br/>Is used in almost every kotlin project and does not need to be mentioned as a single library.*
-* Python (*)
-*<br/>We don't discourage to use Python for prototyping etc. But for lambdas we prefer TypeScript over Python and Kotlin for standard services.*
-* React Testing Library (*)
-*<br/>Is used in almost every React project and does not need to be mentioned as a single library.*
-#### Platforms
+They are mostly used in every team, where we share experiences and
+learnings.
 
-* Amazon Cognito
-*<br/>Cognito is used as part of our IAM solution. No other team is affected by Cognito and any change would be limited to this context.*
-* Amazon API Gateway
-*<br/>It should only be used by Lambdas if needed, but not for Services, where a Load balancer is more appropriate*
-* Kafka Streams
-*<br/>We did not see enough value for the effort.*
-* AWS Glue Data Catalog (*)
-*<br/>We use Glue as Data Catalog for our data lake, but as typical BigData is not our daily business, we remove it from the radar.*
-#### Techniques 
+We need strong proof and use cases to move an item out of this level
+such as reducing maintenance efforts etc.
 
-* TDD, BDD
-*<br/>No agreement on a strong adopt recommendation. Will be addressed as part of a code quality initiative.*
-* Immutable data structures
-*<br/>It is in use but as a programming style, does not need to be enforced via the Technology Radar*
-* Sidecar pattern
-*<br/>It is a solution provided by AWS and Fargate container, therefore, does not need to be enforced via the Technology Radar*
-* 4 key metrics (*)
-*<br/>Important metrics as published results in <a href="https://itrevolution.com/book/accelerate/">Accelerate</a>.* 
-* Proper bounded contexts (*)
-*<br/>Has improved. Also decommissioned in favor of DDD as default at RIO.*
+### Use / Adopt
 
-### Last in trial
+**Items that have been tested and are already used successfully in
+production**.
 
-#### Tools
-* ApiCenter
-*<br/>We still have the requirements for an API registry, but currently we do not have the priority for pushing this forward.*
-* cfn-lint
-*<br/>Low adoption rate*
-* Arrow (*)
-*<br/>No real trial happend.*
+When an item in this level replaces another one we keep the reference to
+the outdated one.
 
-#### Platforms
+When you are refactoring your existing services think about adopting
+them.
 
-* Amazon Kinesis Data Streams
-*<br/>We did not try it.* 
-* Cloud watch for alarming (*)
-*<br/>Was rejected by the Macro Architecture Guild.*
+### Trial
 
-#### Techniques
-* Feature toggle service
-*<br/>A managed tool was selected to manage the feature toggles*
-* Reactive programming/ ReactiveX in the backend
-*<br/>No real trial happend for ReactiveX.*
-* Resilience patterns
-*<br/>No real trial happend.*
-* Threat Modeling
-*<br/>No real trial happend.*
-* Container Security Scanning (*)
-*<br/>No real trial happend. Decomissioned as build everything on top of AWS provided images.*
+**Ongoing tests - in production.**
 
-### Last in assess
+Items are being tested by a team, and the results, success or failures,
+will be shared the rest of the organisation. As we do not have a
+dedicated Assess ring, also planned experiments should be added to trial
+in order to find other colleagues or teams that are interested in
+joining the experiment.
 
-#### Tools
+It should not be adopted by other teams, only if in agreement with the
+team responsible for the trial before. Since it may pass for multiple
+breaking changes due to its immaturity, or even not being adopted.
 
-* Kong API Gateway
-*<br/>Kong is moving in the right direction, but there are no immediate plans for a proper assessment.*
-* pivio.io
-*<br/>We did not see enough value for the effort.* 
-* Cloud Conformity
-*<br/>We are focusing on AWS Config Rules.* 
-* Cloud Custodian
-*<br/>We are focusing on AWS Config Rules.* 
-* Laconia
-*<br/>No real assessment happend.*
-* Snyk.io
-*<br/>We are focusing on Split.*
+It may replace other items.
 
-#### Languages & Frameworks
+When adding **libraries**, consider their "relevance" to the company, if they are a vital part of your code and 
+business they could be added individually with their own blip, if they are more generic and used by core parts 
+(e.g. code formatting, logging) or really specific to one use case (VDA files parsing), try to add a more generic
+description in the "Techniques" ring and use the libraries as an example.
 
-* Elixer
-*<br/>No real assessment happend.*
-* Lagom
-*<br/>No real assessment happend.*
-* RxJava
-*<br/>No real assessment happend.*
-* F#
-*<br/>No real assessment happend.*
-* Flow
-*<br/>We are focusing on TypeScript.* 
-* Golang for Lambda
-*<br/>No need and no real assessment happend.* 
-* Ktor
-*<br/>No real assessment happend.* 
-* Mithril
-*<br/>No real assessment happend.*
-* Coroutines (*)
-*<br/>No real assessment happend.*
-* Micronaut (*)
-*<br/>Stopped as it was used in conjunction with JVM Lambdas and GraalVM native images. For standard use cases we stick with Spring Boot*
-* Kotless (*)
-*<br/>No real assessment happend.*
+The library's relevance and maturity will be taken into consideration by the RIO TechRadar community when they are 
+being moved into higher rings.
 
-#### Platforms
+### Hold
 
-* Amazon Redshift
-*<br/>We are focusing on Athena.* 
-* AWS AppSync
-*<br/>No real assessment happend.* 
-* WSO2
-*<br/>Decommissioned.* 
-* Event bridge (*)
-*<br/>No real assessment happend.*
+**Items that have been replaced by better successors or are considered
+obsolete or deprecated.**
 
-#### Techniques
+Discouraged from broad adoption, no new applications may use it.
 
-* Consumer-driven contract testing
-*<br/>No real assesment happend.*
-* Security gamification
-*<br/>No real assesment happend.*
-* API Gateway as sidecar
-*<br/>No real assesment happend.*
-* GraphQL
-*<br/>No real assesment happend.*
-* Chaos engineering (*)
-*<br/>No real assessment happend.*
+Trial items showed enough reasons to not be continued due to concerns
+(security problems, licensing), missing integration to our default
+applications (monitoring, metrics), so we do not recommend trying them
+further.
 
-### Last in hold
+When you have them in a active service, consider migrating according to
+the business strategy. Possible exceptions are services considered
+feature complete or in maintenance mode.
 
-#### Tools
-* Self-hosted ELK
-*<br/>Decommissioned.* 
-* Ranorex
-*<br/>Decommissioned.*
-* Sonar theater
-*<br/>Decommissioned.*
-* A single CI instance for all teams (*)
-*<br/>Decomissioned as CodeBuild and CodePipeline are almost completely adopted.*
-* Custom Build Images (*)
-*<br/>Decomissioned.*
-* Maven (*)
-*<br/>Decomissioned with Gradle as our default.*
-* Oracle JDK (*)
-*<br/>Decomissioned with Amazon Corretto as our default.*
+### Archive
 
-#### Languages & Frameworks
-* Avro
-*<br/>ADR to not use Avro is accepted and Avro was never introduced.* 
-* Java (*)
-*<br/>Decomissioned with Kotlin as our default.*
-* JavaScript (*)
-*<br/>Decomissioned with TypeScript as our default.*
+Items that are no longer relevant for the radar but are kept for
+historical purposes.
 
-#### Platforms
-* AWS IoT Core
-*<br/>After investigating the viability of IoT core for our vehicle connectivity we decided not to migrate now.*
-* Spark Streaming
-*<br/>Not in use and no need to emphasis "on hold" anymore.* 
-* .NET Core
-*<br/>Not in use and no need to emphasis "on hold" anymore.*
-* Adobe Experience Manager
-*<br/>The contract was not renewed and the replacement is under construction
-* Amazon RDS
-*<br/>Not in use and no need to emphasis "on hold" anymore.*
-* ECS on EC2 (*)
-*<br/>Decomissioned with Fargate as our default.*
-
-##### Techniques
-* CoP theater
-*<br/>Has improved and does not need to be called out anymore.*
-* MSRT - Microservices Runtime
-*<br/>Migration to multi-account is underway and there is no danger of MSRT resurfacing again.*
-* Entity service (*)
-*<br/>Decomissioned.*
-* Event Sourcing with DDB and Lambdas (*)
-*<br/>Decomissioned as now Axon is used in such cases.*
-* Layered architecture (*)
-*<br/>Decomissioned with Ports and Adapters broadly adopted and our default.*
-* Scrum theater (*)
-*<br/>Has improved and does not need to be called out anymore.*
+Items that were part of a trial but were not finalized or for a longer
+period on hold.
