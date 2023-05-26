@@ -1,5 +1,5 @@
 # RIO Technology Radar
-* [RIO Radar Q1 2023 (current)](https://radar.thoughtworks.com/?documentId=https%3A%2F%2Fraw.githubusercontent.com%2Frio-cloud%2Ftech-radar%2Fmaster%2FRIO%2520Radar%2520Q1%25202023.csv)
+* [Current Radar](https://backstage.developers.rio.cloud/tech-radar)
 
 ## Purpose
 
